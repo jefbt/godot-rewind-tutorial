@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dx1dwyq8bfilt"]
+
+[ext_resource type="Texture2D" uid="uid://cugae7gabnt8u" path="res://assets/waterfall_anim_strip_4.png" id="1_c4i1o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwatv"]
+atlas = ExtResource("1_c4i1o")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deq8o"]
+atlas = ExtResource("1_c4i1o")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbqhg"]
+atlas = ExtResource("1_c4i1o")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yo30"]
+atlas = ExtResource("1_c4i1o")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_147hk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwatv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deq8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbqhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yo30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Waterfall" type="AnimatedSprite2D" unique_id=1137265502]
+sprite_frames = SubResource("SpriteFrames_147hk")
+autoplay = "default"
+frame_progress = 0.19075729
