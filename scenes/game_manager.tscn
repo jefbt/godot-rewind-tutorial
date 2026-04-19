@@ -6,3 +6,13 @@
 process_mode = 3
 script = ExtResource("1_hwd4i")
 is_simple_rewind = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1215092066]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1446460297]
+offset_top = 147.0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 10
+text = "A, D, Left and Right Arrow moves.  Space Jumps. Tab Rewinds.
+'R' changes rewind mode. 'P' changes pause mode"

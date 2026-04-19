@@ -49,6 +49,13 @@ func set_level(_level: Level) -> void:
 	
 # Main physics process - routes to either simple or complex rewind based on setting
 func _physics_process(_delta: float) -> void:
+	# Changes pause and rewind modes
+	if not get_tree().paused:
+		if Input.is_action_just_pressed("rewind_mode"):
+			is_simple_rewind = not is_simple_rewind
+		elif Input.is_action_just_pressed("pause_mode"):
+			pause_on_rewind = not pause_on_rewind
+	
 	if is_simple_rewind:
 		simple_rewind()
 	else:
@@ -74,6 +81,8 @@ func complex_rewind() -> void:
 				# Hide all echo sprites when not rewinding
 				for e in player_echoes:
 					e.visible = false
+				if pause_on_rewind:
+					get_tree().paused = false
 			else:
 				# Start rewinding - disable player physics, show all echoes
 				is_rewinding = true
@@ -103,6 +112,9 @@ func complex_rewind() -> void:
 			player.animated_sprite.animation = frame["animation"]
 			player.animated_sprite.frame = frame["animation_frame"]
 			player.animated_sprite.flip_h = frame["flip"]
+			# Sets the process mode for player and camera
+			player.process_mode = Node.PROCESS_MODE_DISABLED
+			player.camera.process_mode = Node.PROCESS_MODE_ALWAYS
 		else:
 			# Record current frame state for rewind history
 			var frame: Dictionary = {
@@ -116,8 +128,9 @@ func complex_rewind() -> void:
 			# Remove oldest frames when buffer is full
 			if player_frames.size() > MAX_REWIND_FRAMES:
 				player_frames.pop_front()
-		
-		
+			# Sets the process mode for player
+			player.process_mode = Node.PROCESS_MODE_INHERIT
+
 # Simple rewind - plays backward through history while rewind key is held
 func simple_rewind() -> void:
 	if player:
