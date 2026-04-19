@@ -69,5 +69,5 @@ For full license terms, see the LICENSE file.
 
 ## Third Party
 
-- The graphic assets used are from o_lobster[https://o-lobster.itch.io/]
-- You can find the link to the assets pack here[https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack]
+- The graphic assets used are from [o_lobster](https://o-lobster.itch.io/)
+- You can find the link to the assets pack [here](https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack)
